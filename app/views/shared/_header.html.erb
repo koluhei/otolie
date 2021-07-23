@@ -1,0 +1,16 @@
+     <ul class='lists-right'>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% elsif  creator_signed_in? %>
+        <p>クリエイターとしてログイン中</p>
+        <li><%= link_to current_creator.name, "#", class: "user-nickname" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li><%= link_to '曲をアップロード', new_song_path, class: "upload-song" %></li>
+      <% else %>
+        <li><%= link_to 'ユーザーログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to 'クリエイターログイン', new_creator_session_path, class: "login" %></li>
+        <li><%= link_to 'ユーザー新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li><%= link_to 'クリエイター新規登録', new_creator_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
