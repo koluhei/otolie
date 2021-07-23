@@ -1,24 +1,44 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## user テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| name               | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| profile          | string | null: false |
 
-* Ruby version
+## creators テーブル
 
-* System dependencies
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| c_name             | string | null: false |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| profile            | string | null: false |
 
-* Configuration
+## songs テーブル
 
-* Database creation
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| title   | string | null: false |
+| song_data   | string | null: false |
+| title   | string | null: false |
+| user   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+| song   | references | null: false, foreign_key: true |
 
-* Database initialization
+## dls テーブル
 
-* How to run the test suite
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| song   | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+## subscribes テーブル
 
-* Deployment instructions
-
-* ...
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| plan   | references | null: false, foreign_key: true |
