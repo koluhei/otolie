@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      song:
+        title: タイトル
+        description: 曲の説明
+        audio: オーディオファイル
+        genre_id: ジャンル
+        price: 価格
+
+      user:
+        name: ユーザー名
+        password: パスワード
+        email: Eメール
+        profile: プロフィール
+
+      creator:
+        name: クリエイター名
+        encrypted_password: パスワード
+        email: Eメール
+        profile: プロフィール

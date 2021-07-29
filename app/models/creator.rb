@@ -6,4 +6,8 @@ class Creator < ApplicationRecord
 
   validates :name, presence: true
   validates :profile, presence: true
+
+  has_many :songs
+
+  mount_uploader :image, CreatorImageUploader
 end

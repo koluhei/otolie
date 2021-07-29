@@ -1,0 +1,67 @@
+.signup-title{
+  text-align: center;
+  padding: 70px;
+  font-family: 'Lato', sans-serif;
+  color:coral;
+  font-size: 50px;
+  letter-spacing: 7px;
+}
+
+.new-body{
+  margin-top: 10vh;
+  width: 100vw;
+  background-color: floralwhite;
+}
+
+.form{
+  width: 50vw;
+  margin:auto;
+}
+
+.field{
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+input{
+  border: 1px solid rgb(197, 189, 189);
+  width: 50%;
+}
+
+textarea{
+  border: 1px solid rgb(197, 189, 189);
+  width: 50%;
+}
+.profile{
+  height: 100px;
+}
+
+.actions{
+  display: flex;
+  justify-content: space-between;
+}
+.submit-btn{
+  height: 50px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+label{
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 2px;
+}
+
+.new-links a{
+  text-align: center;
+  font-family: 'Source Code Pro', monospace;
+  letter-spacing: 1px;
+  margin-left: 10%;
+  border-left: 1px solid coral;
+  margin-bottom: 30px;
+}
+.field_with_errors {
+  display: contents;
+  font-family: 'Source Code Pro', monospace;
+}

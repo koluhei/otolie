@@ -1,16 +1,26 @@
-     <ul class='lists-right'>
+  <header>
+  <div class="header-body">
+    <div class="header-logo">OTOLIE</div>
+    <ul class="header-navs">
+      <li class="nav"><%= link_to "Top", root_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to current_user.name, "#", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% elsif  creator_signed_in? %>
-        <p>クリエイターとしてログイン中</p>
-        <li><%= link_to current_creator.name, "#", class: "user-nickname" %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-        <li><%= link_to '曲をアップロード', new_song_path, class: "upload-song" %></li>
+        <li class="nav"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% elsif creator_signed_in? %>
+        <li class="nav"><%= link_to "Log out", destroy_creator_session_path, method: :delete %></li>
+        <li class="nav"><%= link_to "Upload", new_song_path %></li>
       <% else %>
-        <li><%= link_to 'ユーザーログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to 'クリエイターログイン', new_creator_session_path, class: "login" %></li>
-        <li><%= link_to 'ユーザー新規登録', new_user_registration_path, class: "sign-up" %></li>
-        <li><%= link_to 'クリエイター新規登録', new_creator_registration_path, class: "sign-up" %></li>
+        <li class="nav" id="signup-btn">Sign up</li>  
+        <li class="nav" id="login-btn">Log in</li>
       <% end %>
+      <li class="nav">Policy</li>
     </ul>
+    <ul class="signup-pulldown hidden" id="signup-pulldown">
+      <li><%= link_to "User", new_user_registration_path, class: "user" %></li>
+      <li><%= link_to "Creator", new_creator_registration_path, class: "creator" %></li>
+    </ul>
+    <ul class="login-pulldown hidden" id="login-pulldown">
+      <li><%= link_to "User", new_user_session_path, class: "user" %></li>
+      <li><%= link_to "Creator", new_creator_session_path, class: "creator" %></li>
+    </ul>
+  <div>
+  </header>

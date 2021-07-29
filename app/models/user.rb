@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :profile, presence: true
+
+  mount_uploader :image, UserImageUploader
 end

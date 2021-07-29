@@ -1,5 +1,6 @@
 class Song < ApplicationRecord
   mount_uploader :audio, AudioFileUploader
+  mount_uploader :image, ImageUploader
 
   with_options presence: true do
     validates :title

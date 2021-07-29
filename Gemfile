@@ -56,3 +56,5 @@ gem 'devise'
 gem 'carrierwave'
 gem 'carrierwave-audio'
 gem 'active_hash'
+gem "jquery-rails"
+gem 'rails-i18n'
