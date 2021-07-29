@@ -3,4 +3,5 @@ class CreatorsController < ApplicationController
     @creator = Creator.find(params[:id])
     @songs = @creator.songs
   end
+
 end

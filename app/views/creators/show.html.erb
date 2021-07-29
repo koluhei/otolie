@@ -17,7 +17,7 @@
     <% if user_signed_in? %>
       <div class="request-btn"><%= link_to '作曲依頼', '#' %></div>
     <% elsif creator_signed_in? && current_creator.id == @creator.id %>
-      <div class="request-btn"><%= link_to '編集する', '#' %></div>
+      <div class="request-btn"><%= link_to '編集する', edit_creator_registration_path %></div>
     <% end %>
   </div>
   <h1 class="music-logo">Music</h1> 
