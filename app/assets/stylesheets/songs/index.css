@@ -1,0 +1,209 @@
+#header{
+	/*headerを全画面で見せる*/
+	width:100%;
+	height: 100vh;
+	position: relative;
+  display: flex;
+  justify-content: center;
+} 
+
+#header:before{
+	/*headerの疑似要素に背景画像を指定*/
+	content:"";
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:-1;
+	width:100%;
+	height: 100vh;
+	background:url("https://i1.wp.com/threem-design.com/wp-content/uploads/youtube-bgm-eye.jpg?fit=1580%2C960&ssl=1") no-repeat center;/*背景画像設定※オリジナル画像を設定してください*/
+	background-size:cover;
+}
+
+#container{
+	/*下のかぶさるエリアの指定*/
+	position: relative;
+	z-index:1;
+	/*以下はレイアウトのための記述。削除可能*/
+background-color: floralwhite;
+}
+
+.title-logo{
+  margin-top: 0;
+  line-height: 0;
+  font-size: 70px;
+  font-family: 'Rock Salt', cursive;
+  height: 100vh;
+  color:oldlace;
+  display: flex;
+  align-items: center;
+}
+
+.navs{
+  display: flex;
+  list-style: none;
+  font-family: 'Source Code Pro', monospace;
+  letter-spacing: 0.1em;
+  font-size: 20px;
+  color:rgb(73, 71, 71);
+  justify-content: center;
+  padding-bottom: 90px;
+}
+.nav{
+  padding: 3px;
+  padding-left: 4px;
+  margin: 15px 10px;
+  border-left: 1px solid rgb(43, 41, 41);
+  width: 100px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.signup-pulldown{
+  width: 200px;
+  position: absolute;
+  right: 610px;
+  top: 58px;
+  list-style: none;
+  z-index: 3;
+  font-family: 'Source Code Pro', monospace;
+}
+.signup-pulldown li{
+  padding: 0 0 10px 5px; 
+  border-left: 1px solid;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.login-pulldown{
+  width: 200px;
+  position: absolute;
+  right: 480px;
+  top: 58px;
+  list-style: none;
+  z-index: 3;
+  font-family: 'Source Code Pro', monospace;
+}
+.login-pulldown li{
+  padding: 0 0 10px 5px; 
+  border-left: 1px solid;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.user{
+  text-decoration: none;
+  color: black;
+}
+.creator{
+  text-decoration: none;
+  color: black;
+}
+.about-content{
+  height: 600px;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.passages{
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+.about{
+  font-size: 60px;
+  letter-spacing: 5px;
+  text-align: right;
+  margin: 30px 0 0 200px;
+  font-family: 'Lato', sans-serif;
+  border-bottom: 4px solid orange;
+  width: 50%;
+}
+.about-1{
+  padding-top: 39px;
+  padding-bottom: 35px;
+  font-size: 22px;
+  text-align: right;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 3px;
+  font-weight: bolder;
+  line-height: 200%;
+}
+
+.about-2{
+  font-size: 17px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 2px;
+  padding-bottom: 30px;
+  line-height: 180%;
+}
+
+.about-3{
+  font-size: 17px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 2px;
+  line-height: 180%;
+}
+
+.music-logo{
+  font-size: 60px;
+  letter-spacing: 5px;
+  text-align: center;
+  margin: 50px; 
+  font-family: 'Lato', sans-serif;
+  border-bottom: 4px solid orange;
+  width: 30%;
+}
+
+.upper-content{
+  width: 88%;
+  margin: auto;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden{
+  display: none;
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.music-image{
+  border-radius: 50%;
+  width:  150px;
+  height: 150px;
+  margin-right: 30px;
+}
+
+.music-lists{
+  width: 60%;
+  margin-left: 320px;
+}
+
+.music{
+  margin: 40px;
+  display: flex;
+}
+.music-title{
+  display: flex;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: 'Source Code Pro', monospace;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 40px;justify-content: space-between;
+}
+.music-creator{
+  font-size: 18px;
+  margin-top: 20px;
+}
+.index-audio{
+  width: 500px;
+}

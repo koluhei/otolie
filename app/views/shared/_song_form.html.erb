@@ -1,0 +1,46 @@
+<div class="song-forms">
+  <% if request.fullpath.include?("new") %>
+    <h2 class="upload">Upload your song.</h2>
+  <%else%>
+    <h2 class="upload">Edit your song.</h2>
+  <% end %>
+
+  <div class="song-forms">
+  <%= form_with model: song, local: true do |f| %>
+  <%= render 'shared/errors', { target: song } %>
+    <div class="song-field">
+      <%= f.label :title, "タイトル" %><br />
+      <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+    </div>
+
+    <div class="song-field">
+      <%= f.label :audio, "オーディオファイル" %><br />
+      <%= f.file_field :audio %>
+    </div>
+
+    <div class="song-field description">
+      <%= f.label :description, "曲の説明" %><br />
+      <%= f.text_area :description, autocomplete: "description" %>
+    </div>
+
+    <div class="song-field">
+      <%= f.label :genre_id, "ジャンル" %><br />
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"genre-select"}) %>
+    </div>
+
+    <div class="song-field">
+      <%= f.label :price, "販売価格(半角数字のみ)"%><br />
+      <%= f.text_field :price, autocomplete: "price" %>
+    </div>
+
+    <div class="song-field">
+      <%= f.label :image, "アートワーク(任意)"%><br />
+      <%= f.file_field :image, autocomplete: "email" %>
+    </div>
+
+    <div class="upload-action">
+      <%= f.submit "アップロード", class: "upload-btn" %>
+    </div>
+  <% end %>
+  </div>
+<div>

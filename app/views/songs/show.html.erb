@@ -1,0 +1,37 @@
+<%= render partial: "shared/header" %>
+<div class="show-body">
+  <div class="show-head">
+      <% unless @song.image.present? %>
+      <%= image_tag "headphone", class: "show-image"%>
+      <% else %>
+      <%= image_tag @song.image.url, class: "show-image"%>
+      <% end %>
+    <div class="show-head-right">
+      <h3 class="show-title"><%= @song.title %></h3>
+      <div class="show-creator"><%= link_to @song.creator.name, "#" %></div>
+      <div class="content-price">
+        <p class="show-price">¥<%= @song.price %></p>
+          <% unless creator_signed_in? && current_creator.id == @song.creator.id %>
+            <div class="purchase-btn"><%= link_to "購入する", "#" %></div>
+          <% end %>
+      </div>
+      <div class="show-audio"><%= audio_tag(@song.audio.url, controls: true, controlslist: "nodownload", oncontextmenu: "return false;", class: "index-audio") %></div>
+      <% if creator_signed_in? && current_creator.id == @song.creator.id %>
+        <%= link_to "編集", edit_song_path(params[:id]), class: "edit-btn"%>
+        <%= link_to "削除", song_path(params[:id]), method: :delete, class: "delete-btn"%>
+      <% end %>
+    </div>
+  </div>
+  <div class="show-bottom">
+    <div class="show-info">
+      <h2>曲の情報</h2>
+      <p class="info-title">タイトル：<%= @song.title%></p>
+      <p class="info-creator">作曲者：<%= @song.creator.name%></p>
+      <p class="info-genre">ジャンル：<%= @song.genre.name%></p>
+      <h3 class="info-description">説明：</h3>
+      <p><%= @song.description %></p>
+    </div>
+  </div>
+</div>
+
+<%= render partial: "shared/footer"%>

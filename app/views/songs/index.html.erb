@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>6-6 スクロールすると下のエリアがヘッダーにかぶさる</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/assets/stylesheets/index.css">
+</head>
+
+<body>
+<header id="header">
+<p class="title-logo">otolie</p>
+</header>
+<div id="container">
+<ul class="navs">
+  <li class="nav">Top</li>
+  <% if user_signed_in? %>
+    <li class="nav"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+  <% elsif creator_signed_in? %>
+    <li class="nav"><%= link_to "Log out", destroy_creator_session_path, method: :delete %></li>
+    <li class="nav"><%= link_to "Upload", new_song_path %></li>
+  <% else %>
+    <li class="nav" id="signup-btn">Sign up</li>  
+    <li class="nav" id="login-btn">Log in</li>
+  <% end %>
+  <li class="nav">Policy</li>
+</ul>
+<ul class="signup-pulldown hidden" id="signup-pulldown">
+    <li><%= link_to "User", new_user_registration_path, class: "user" %></li>
+    <li><%= link_to "Creator", new_creator_registration_path, class: "creator" %></li>
+</ul>
+<ul class="login-pulldown hidden" id="login-pulldown">
+    <li><%= link_to "User", new_user_session_path, class: "user" %></li>
+    <li><%= link_to "Creator", new_creator_session_path, class: "creator" %></li>
+</ul>
+
+<div class="about-content">
+  <div class="about-image"><%= image_tag "guitar.jpeg", size: '590x400' %></div>
+  <div class="passages">
+  <h1 class="about">About</h1>
+    <p class="about-1">『otolie』はあなたの創作活動に寄り添う<br>音楽ダウンロード配信サービスです。</p>
+    <p class="about-2">動画、ゲーム、アプリなど、<br>あなたのプロダクトに理想の音楽を。</p>
+    <p class="about-3">あなたの才能と想像力で、<br>最高の作品を共に創り上げよう。</p>
+  </div>
+</div>
+<h1 class="music-logo">Music</h1> 
+<div class="music-content">
+  <div class="music-lists">
+    <% @songs.each do |song| %>
+      <div class="music">
+        <% unless song.image.present? %>
+          <%= image_tag "headphone", size:'150x150' ,class: "music-image"%>
+        <% else %>
+          <%= image_tag song.image.url, size:'150x150', class: "music-image"%>
+        <% end %>
+        <div class="music-right">
+          <div class="music-title">
+          <p><%= link_to song.title, song_path(song.id) %></p>
+          <p class="music-creator">by: <%=link_to song.creator.name, creator_path(song.creator.id) %></p>
+          </div>
+          <div class="audio">
+          <%= audio_tag(song.audio.url, controls: true, controlslist: "nodownload", oncontextmenu: "return false;", class: "index-audio") %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <!--ジャンル分け機能を使うなら↓
+    <div class="upper-content">
+    </div>
+    <div class="center-content">
+    </div>
+    <div class="bottom-content">
+    </div>
+  /ジャンル分け機能用-->
+</div> 
+<%= render partial: 'shared/footer'%>
+</body>
+</html>

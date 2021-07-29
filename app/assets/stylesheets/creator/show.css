@@ -1,0 +1,80 @@
+.profile-body{
+  margin-top: 10vh;
+  background-color: floralwhite;
+}
+.profile-header{
+  display: flex;
+  justify-content: center;
+  background-image: url(https://i1.wp.com/threem-design.com/wp-content/uploads/youtube-bgm-eye.jpg?fit=1580%2C960&ssl=1);
+  box-shadow: 2px 2px 4px gray;
+  position: relative;
+}
+.profile-image{
+  margin: 20px;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  border: 1px solid whitesmoke;
+  background-color: white;
+}
+.profile-name{
+  font-size: 50px;
+  margin: 30px;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 65%;
+  border-left: 3px solid white;
+  padding: 0 4px 25px 4px ;
+}
+
+.what-kind{
+  font-family: 'Source Code Pro', monospace;
+  position: absolute;
+  font-size: 25px;
+  top: 75%;
+  color: white;
+  left: 70%;
+}
+
+.profile-main{
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+}
+.profile-logo{
+  font-size: 60px;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  border-bottom: 4px solid orange;
+  width: 30%;
+  margin: 50px auto;
+}
+
+.profile-text{
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: auto;
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 2px 2px 4px gray;
+}
+
+.request-btn{
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+  align-items: center;
+  padding: 25px 0;
+  width: 280px;
+  margin: 50px auto;
+  font-size: larger;
+  background-color:sandybrown;
+  letter-spacing: 7px;
+
+  box-shadow: 2px 2px 4px gray;
+}
+

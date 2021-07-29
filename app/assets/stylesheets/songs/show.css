@@ -1,0 +1,109 @@
+.show-body{
+  margin-top: 10vh;
+  background-color: floralwhite;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.show-image{
+  border-radius: 50%;
+  width:  340px;
+  height: 340px;
+  margin-right: 50px;
+  border: 1px solid whitesmoke;
+  background-color: white;
+
+}
+
+.show-head{
+  padding: 20px;
+  background-color:darkslategray;
+  display: flex;
+  padding-left: 180px;
+}
+.show-title{
+  font-size: 40px;
+  color: white;
+  font-weight: bolder;
+}
+
+.show-creator a{
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(126, 126, 126);
+  border-bottom: 1px solid rgb(126, 126, 126);
+  margin: 20px;
+}
+
+.content-price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.show-price{
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-bottom: 70px;
+}
+.purchase-btn{
+  border: 1px solid rgb(68, 68, 68);
+  width :170px;
+  height: 60px;
+  background-color:rgb(169, 187, 187);
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin: 20px;
+}
+.show-audio{
+  margin-bottom: 20px;
+}
+.edit-btn{
+  color: white;
+  border: 1px solid white;
+  padding: 3px 5px;
+  margin: 20px;
+}
+.delete-btn{
+  color: white;
+  border: 1px solid white;
+  padding: 3px 5px;
+  margin: 20px;
+}
+
+
+.show-bottom{
+  padding: 90px 400px;
+}
+.show-info h2{
+  font-weight: bold;
+  font-size: 25px;
+  border-bottom: 2px solid orange;
+  letter-spacing: 2px;
+}
+
+.show-info p{
+  margin: 15px 0;
+}
+
+.info-title{
+  text-align: center;
+  font-size: 20px;
+}
+
+.info-creator{
+  text-align: right;
+}
+
+.info-genre{
+  text-align: right;
+}
+
+.info-description{
+  font-weight: bold;
+  letter-spacing: 1px;
+}
