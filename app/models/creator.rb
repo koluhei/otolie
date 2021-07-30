@@ -4,8 +4,10 @@ class Creator < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
-  validates :profile, presence: true
+  with_options presence: true do
+    validates :name
+    validates :profile
+  end
 
   has_many :songs
 

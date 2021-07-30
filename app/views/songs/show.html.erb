@@ -12,7 +12,7 @@
       <div class="content-price">
         <p class="show-price">¥<%= @song.price %></p>
           <% unless creator_signed_in? && current_creator.id == @song.creator.id %>
-            <div class="purchase-btn"><%= link_to "購入する", "#" %></div>
+            <div class="purchase-btn"><%= link_to "購入する", song_dls_path(@song.id) %></div>
           <% end %>
       </div>
       <div class="show-audio"><%= audio_tag(@song.audio.url, controls: true, controlslist: "nodownload", oncontextmenu: "return false;", class: "index-audio") %></div>
