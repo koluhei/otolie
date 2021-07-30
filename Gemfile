@@ -58,3 +58,5 @@ gem 'carrierwave-audio'
 gem 'active_hash'
 gem "jquery-rails"
 gem 'rails-i18n'
+gem 'pry-rails'
+gem 'payjp'
