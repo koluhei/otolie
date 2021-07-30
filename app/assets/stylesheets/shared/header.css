@@ -7,6 +7,16 @@
   height: 10vh;
   position: fixed;
 }
+.index-header-body{
+    top:0;
+    width: 100vw;
+    background-color:floralwhite;
+    display: flex;
+    z-index: 3;
+    height: 10vh;
+    position: absolute;
+}
+
 .header-logo{
   font-size: 21px;
   font-family: 'Rock Salt', cursive;
@@ -31,3 +41,23 @@
   height: 40%;
 }
 
+.header-user{
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+
+.header-username{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.header-image{
+    border-radius: 50%;
+    width:  45px;
+    height: 45px;
+    border: 1px solid rgb(192, 192, 192);
+    margin-right: 5px;
+}

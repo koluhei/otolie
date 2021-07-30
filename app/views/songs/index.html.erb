@@ -12,7 +12,57 @@
 <p class="title-logo">otolie</p>
 </header>
 <div id="container">
-<ul class="navs">
+
+  <header>
+  <div class="index-header-body">
+    <div class="header-logo">OTOLIE</div>
+    <ul class="header-navs">
+      <li class="nav"><%= link_to "Top", root_path %></li>
+      <% if user_signed_in? %>
+        <li class="nav"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      <% elsif creator_signed_in? %>
+        <li class="nav"><%= link_to "Log out", destroy_creator_session_path, method: :delete %></li>
+        <li class="nav"><%= link_to "Upload", new_song_path %></li>
+      <% else %>
+        <li class="nav" id="signup-btn">Sign up</li>  
+        <li class="nav" id="login-btn">Log in</li>
+      <% end %>
+      <li class="nav">Policy</li>
+    </ul>
+    <ul class="signup-pulldown hidden" id="signup-pulldown">
+      <li><%= link_to "User", new_user_registration_path, class: "user" %></li>
+      <li><%= link_to "Creator", new_creator_registration_path, class: "creator" %></li>
+    </ul>
+    <ul class="login-pulldown hidden" id="login-pulldown">
+      <li><%= link_to "User", new_user_session_path, class: "user" %></li>
+      <li><%= link_to "Creator", new_creator_session_path, class: "creator" %></li>
+    </ul>
+    <div class="header-user">
+      <!--ユーザーマイページへのリンク&アイコン-->
+      <% if user_signed_in? %>
+        <% unless current_user.image.present? %>
+          <%= link_to image_tag("user_icon", size:'45x45' ,class: "header-image"), "#" %>
+        <% else %>
+          <%= link_to image_tag(current_user.image.url, size:'45x45', class: "header-image"), "#" %>
+        <% end %>
+         <%= link_to "#{current_user.name} -user", "#", class: "header-username" %>
+      <% end %>
+      <!--クリエイターマイページへのリンク&アイコン-->
+      <% if creator_signed_in? %>
+        <% unless current_creator.image.present? %>
+          <%= link_to image_tag("user_icon", size:'45x45' ,class: "header-image"), "#" %>
+        <% else %>
+          <%= link_to image_tag(current_creator.image.url, size:'45x45', class: "header-image"), "#" %>
+        <% end %>
+         <%= link_to "#{current_creator.name} -creator", creator_path(current_creator.id), class: "header-username" %>
+      <% end %>
+    </div>
+  <div>
+  </header>
+
+
+
+<!--<ul class="navs">
   <li class="nav">Top</li>
   <% if user_signed_in? %>
     <li class="nav"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
@@ -24,6 +74,7 @@
     <li class="nav" id="login-btn">Log in</li>
   <% end %>
   <li class="nav">Policy</li>
+  
 </ul>
 <ul class="signup-pulldown hidden" id="signup-pulldown">
     <li><%= link_to "User", new_user_registration_path, class: "user" %></li>
@@ -32,7 +83,10 @@
 <ul class="login-pulldown hidden" id="login-pulldown">
     <li><%= link_to "User", new_user_session_path, class: "user" %></li>
     <li><%= link_to "Creator", new_creator_session_path, class: "creator" %></li>
-</ul>
+</ul>-->
+
+
+
 
 <div class="about-content">
   <div class="about-image"><%= image_tag "guitar.jpeg", size: '590x400' %></div>
