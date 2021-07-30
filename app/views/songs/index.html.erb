@@ -41,11 +41,11 @@
       <!--ユーザーマイページへのリンク&アイコン-->
       <% if user_signed_in? %>
         <% unless current_user.image.present? %>
-          <%= link_to image_tag("user_icon", size:'45x45' ,class: "header-image"), "#" %>
+          <%= link_to image_tag("user_icon", size:'45x45' ,class: "header-image"), user_path(current_user.id) %>
         <% else %>
-          <%= link_to image_tag(current_user.image.url, size:'45x45', class: "header-image"), "#" %>
+          <%= link_to image_tag(current_user.image.url, size:'45x45', class: "header-image"), user_path(current_user.id) %>
         <% end %>
-         <%= link_to "#{current_user.name} -user", "#", class: "header-username" %>
+         <%= link_to "#{current_user.name} -user", user_path(current_user.id), class: "header-username" %>
       <% end %>
       <!--クリエイターマイページへのリンク&アイコン-->
       <% if creator_signed_in? %>

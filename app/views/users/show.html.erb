@@ -1,0 +1,22 @@
+<%= render partial: "shared/header" %>
+<div class="profile-body">
+  <div class="profile-header">
+    <div class="profile-header-contents">
+      <% unless @user.image.present? %>
+        <%= image_tag "user_icon", class: "profile-image"%>
+        <% else %>
+        <%= image_tag @user.image.url, class: "profile-image" %>
+      <% end %>
+      <h2 class="profile-name"><%= @user.name %></h2>  
+      <p class="what-kind">-User-</p>
+    </div>  
+  </div>
+  <div class="profile-main">
+    <h1 class="profile-logo">Profile</h1>
+    <p class="profile-text"><%= @user.profile %></p>
+    <% if user_signed_in? && current_user.id == @user.id %>
+      <div class="request-btn"><%= link_to '編集する', edit_user_registration_path %></div>
+    <% end %>
+  </div>
+  <%= render partial: "shared/footer" %>
+</div>
