@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_29_021957) do
+ActiveRecord::Schema.define(version: 2021_07_30_052302) do
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2021_07_29_021957) do
     t.string "image"
     t.index ["email"], name: "index_creators_on_email", unique: true
     t.index ["reset_password_token"], name: "index_creators_on_reset_password_token", unique: true
+  end
+
+  create_table "dls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "song_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["song_id"], name: "index_dls_on_song_id"
+    t.index ["user_id"], name: "index_dls_on_user_id"
   end
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,5 +64,7 @@ ActiveRecord::Schema.define(version: 2021_07_29_021957) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dls", "songs"
+  add_foreign_key "dls", "users"
   add_foreign_key "songs", "creators"
 end

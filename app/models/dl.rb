@@ -1,0 +1,2 @@
+class Dl < ApplicationRecord
+end
