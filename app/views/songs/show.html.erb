@@ -8,7 +8,7 @@
       <% end %>
     <div class="show-head-right">
       <h3 class="show-title"><%= @song.title %></h3>
-      <div class="show-creator"><%= link_to @song.creator.name, "#" %></div>
+      <div class="show-creator"><%= link_to @song.creator.name, creator_path(@song.creator.id) %></div>
       <div class="content-price">
         <p class="show-price">¥<%= @song.price %></p>
           <% unless creator_signed_in? && current_creator.id == @song.creator.id %>

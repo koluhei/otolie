@@ -1,1 +1,50 @@
-<h1>購入ページ</h1>
+<%= render "shared/header"%>
+<div class ="dl-body">
+  <h1 class="dl-confirm-logo">購入内容</h1>
+  <div class="dl-confirm">
+  <% unless @song.image.present? %>
+    <%= image_tag "headphone", size:'200x200' ,class: "dl-image"%>
+  <% else %>
+    <%= image_tag @song.image.url, size: "200x200", class: "dl-image" %>
+  <% end %>
+    <div class="dl-confirm-right">
+      <p class="dl-title"><%= @song.title %></p>
+      <p class="dl-creator"><%= @song.creator.name %></p>
+      <%= audio_tag(@song.audio.url, controls: true, controlslist: "nodownload", oncontextmenu: "return false;", class: "index-audio") %>
+      <p class="dl-price">¥ <%= @song.price %></p>
+    </div>
+  </div>
+  <h1 class="dl-confirm-logo">カード情報入力</h1>
+  <div class="dl-forms">
+    <%= form_with model: [@song, @dl], url: song_dls_path, id: 'charge-form', local: true do |f| %>
+    <%#= render 'shared/errors', { target: @dl } %>
+      <div class="song-field">
+        <%= f.label :number, "クレジットカード番号" %><br />
+        <%= f.text_field :number, autofocus: true, id: "card-number", placeholder: "カード番号(半角数字)", maxlength: "16" %>
+      </div>
+      <div class='available-cards'>
+          <%= image_tag 'card-visa.gif', size: "40x35", class: 'card-logo'%>
+          <%= image_tag 'card-mastercard.gif', size: "40x35", class: 'card-logo'%>
+          <%= image_tag 'card-jcb.gif', size: "40x35", class: 'card-logo'%>
+          <%= image_tag 'card-amex.gif', size: "40x35", class: 'card-logo'%>
+        </div>
+
+      <div class="exp-field">
+        <%= f.label :exp_month, "有効期限" %><br />
+          <%= f.text_field :exp_month, id: "card-exp-month", class: "month", placeholder: "例)3", maxlength: "2" %>
+          <%= f.text_field :exp_year, id: "card-exp-year", class: "year", placeholder: "例)22", maxlength: "2" %>
+      </div>
+
+      <div class="song-field">
+        <%= f.label :cvc, "セキュリティコード"%><br />
+        <%= f.text_field :cvc, id: "card-cvc" , placeholder: "カード背面３桁もしくは４桁の番号", maxlength: "4"%>
+      </div>
+
+      <div class="dl-action">
+        <%= f.submit "購入する", class: "upload-btn", id: "purchase-btn" %>
+      </div>
+    <% end %>
+  </div>
+    <%# /カード情報の入力 %>
+</div>
+<%= render "shared/footer"%>
