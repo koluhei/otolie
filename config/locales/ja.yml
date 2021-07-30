@@ -13,9 +13,11 @@ ja:
         password: パスワード
         email: Eメール
         profile: プロフィール
+        current_password: 現在のパスワード
 
       creator:
         name: クリエイター名
         encrypted_password: パスワード
         email: Eメール
         profile: プロフィール
+        current_password: 現在のパスワード

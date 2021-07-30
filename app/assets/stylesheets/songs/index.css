@@ -8,7 +8,6 @@
 } 
 
 #header:before{
-	/*headerの疑似要素に背景画像を指定*/
 	content:"";
 	position:fixed;
 	top:0;
@@ -21,11 +20,9 @@
 }
 
 #container{
-	/*下のかぶさるエリアの指定*/
 	position: relative;
 	z-index:1;
-	/*以下はレイアウトのための記述。削除可能*/
-background-color: floralwhite;
+  background-color: floralwhite;
 }
 
 .title-logo{
@@ -37,6 +34,7 @@ background-color: floralwhite;
   color:oldlace;
   display: flex;
   align-items: center;
+  position: fixed;
 }
 
 .navs{
@@ -105,6 +103,7 @@ background-color: floralwhite;
   margin: auto;
   display: flex;
   justify-content: space-between;
+  padding-top: 10vh;
 }
 .passages{
   width: 50%;
