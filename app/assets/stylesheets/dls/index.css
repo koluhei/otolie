@@ -1,0 +1,68 @@
+.dl-body{
+  margin-top: 10vh;
+  background-color: floralwhite;
+}
+.dl-confirm-logo{
+  font-size: 30px;
+  font-family: 'Noto Sans JP', sans-serif;
+  width: 25%;
+  margin: 10px 0 50px 100px ;
+  border-bottom: 3px solid orange;
+  letter-spacing: 2px;
+}
+
+.dl-confirm{
+  width: 80%;
+  display: flex;
+  margin: auto;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding-bottom: 70px;
+}
+.dl-image{
+  margin-right: 60px;
+}
+
+.dl-title{
+  font-size: 30px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.dl-creator{
+  margin-bottom: 10px;
+}
+
+.dl-price{
+  font-size: 28px;
+  margin-top: 15px;
+}
+
+.dl-forms{
+  justify-content: center;
+  background-color: floralwhite;
+}
+.exp-field{
+  width: 50%;
+  display: flex;
+  height: 50px;
+  margin: 20px auto;
+}
+.year{
+  margin-left: auto;
+  width: 150px;
+}
+
+.month{
+  margin-left: 285px;
+  width: 150px;
+}
+
+.available-cards{
+  margin-left: 730px;
+}
+
+.dl-action{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 80px;
+}

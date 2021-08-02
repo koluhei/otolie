@@ -1,0 +1,20 @@
+<%= render "shared/header"%>
+<div class ="dl-body">
+  <h1 class="dl-confirm-logo">購入完了</h1>
+  <div class="dl-confirm">
+  <% unless @song.image.present? %>
+    <%= image_tag "headphone", size:'200x200' ,class: "dl-image"%>
+  <% else %>
+    <%= image_tag @song.image.url, size: "200x200", class: "dl-image" %>
+  <% end %>
+    <div class="dl-confirm-right">
+      <p class="dl-title"><%= @song.title %></p>
+      <p class="dl-creator"><%= @song.creator.name %></p>
+      <%= audio_tag(@song.audio.url, controls: true, controlslist: "nodownload", oncontextmenu: "return false;", class: "index-audio") %>
+    </div>
+  </div>
+  <div class="download">
+  <%= button_to "音源ファイルダウンロード", download_song_dls_path(params[:song_id]), method: :get, class: "download-btn" %>
+  </div>
+</div>
+<%= render "shared/footer" %>

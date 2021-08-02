@@ -7,5 +7,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :profile, presence: true
 
+  has_many :dls
+  has_many :songs, through: :dls
+
   mount_uploader :image, UserImageUploader
 end

@@ -8,11 +8,13 @@
       <% end %>
     <div class="show-head-right">
       <h3 class="show-title"><%= @song.title %></h3>
-      <div class="show-creator"><%= link_to @song.creator.name, "#" %></div>
+      <div class="show-creator"><%= link_to @song.creator.name, creator_path(@song.creator.id) %></div>
       <div class="content-price">
         <p class="show-price">¥<%= @song.price %></p>
-          <% unless creator_signed_in? && current_creator.id == @song.creator.id %>
-            <div class="purchase-btn"><%= link_to "購入する", "#" %></div>
+          <% if user_signed_in? && Dl.where(song_id: @song.id, user_id: current_user.id).present? %>
+            <div class="purchase-btn"><%= link_to "ダウンロード", download_page_song_dls_path(@song.id) %></div>
+          <% elsif user_signed_in? %>
+            <div class="purchase-btn"><%= link_to "購入する", song_dls_path(@song.id) %></div>
           <% end %>
       </div>
       <div class="show-audio"><%= audio_tag(@song.audio.url, controls: true, controlslist: "nodownload", oncontextmenu: "return false;", class: "index-audio") %></div>
