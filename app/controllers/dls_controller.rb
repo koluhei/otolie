@@ -10,20 +10,30 @@ class DlsController < ApplicationController
       @song = Song.find(params[:song_id])
       pay_song
       @dl.save
-      return redirect_to root_path
+      return redirect_to download_page_song_dls_path(params[:song_id])
     else
       render 'index'
     end
   end
+
+  def download_page
+    @song = Song.find(params[:song_id])
+  end
+
+  def download
+    @song = Song.find(params[:song_id])
+    send_file @song.audio.path
+  end
+
 
   private
 
   def pay_song
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
     Payjp::Charge.create(
-      amount: @song.price,  # 商品の値段
-      card: params[:token],    # カードトークン
-      currency: 'jpy'                 # 通貨の種類（日本円）
+      amount: @song.price,
+      card: params[:token],
+      currency: 'jpy'
     )
   end
 end
