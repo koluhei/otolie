@@ -5,5 +5,6 @@ class CreateDls < ActiveRecord::Migration[6.0]
       t.references :song, foreign_key: true
       t.timestamps
     end
+    add_index :dls, [:user_id, :song_id], unique: :true
   end
 end

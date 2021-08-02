@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2021_07_30_052302) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["song_id"], name: "index_dls_on_song_id"
+    t.index ["user_id", "song_id"], name: "index_dls_on_user_id_and_song_id", unique: true
     t.index ["user_id"], name: "index_dls_on_user_id"
   end
 
