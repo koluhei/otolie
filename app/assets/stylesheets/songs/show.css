@@ -58,6 +58,7 @@
   font-weight: bold;
   letter-spacing: 3px;
   margin: 20px;
+  cursor: pointer;
 }
 .show-audio{
   margin-bottom: 20px;
