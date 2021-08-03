@@ -9,8 +9,8 @@ class DlsController < ApplicationController
 
   def create
     @dl = Dl.new(user_id: current_user.id, song_id: params[:song_id], token: params[:token])
+    set_song
     if @dl.valid?
-      set_song
       pay_song
       @dl.save
       return redirect_to download_page_song_dls_path(params[:song_id])
