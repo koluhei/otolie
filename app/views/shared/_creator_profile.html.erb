@@ -1,0 +1,11 @@
+<div class="profile-header">
+    <div class="profile-header-contents">
+      <% unless creator.image.present? %>
+        <%= image_tag "user_icon", class: "profile-image"%>
+        <% else %>
+        <%= image_tag creator.image.url, class: "profile-image" %>
+      <% end %>
+      <h2 class="profile-name"><%= creator.name %></h2>  
+      <p class="what-kind">-Creator-</p>
+    </div>  
+  </div>

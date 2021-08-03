@@ -1,1 +1,21 @@
-<h1>プラン一覧</h1>
+<%= render partial: "shared/header" %>
+<div class="plan-index-body">
+  <%= render partial: "shared/creator_profile", locals: { creator: @creator } %>
+<div class="plan-index-main">
+  <h1 class="plan-logo">Plans</h1>
+  <div class="plan">
+    <%= link_to "プランコース", "#", class: "plan-course" %>
+    <p class="plan-description">
+      説明が入ります。節米が入ります
+      説明が入ります。説明が入ります。説明が入ります。説明が入ります。
+      説明が入ります。
+    </p>
+    <%#= if creator_signed_in? && plan.creator.id == current_creator.id %>
+      <%= link_to "編集", "#", class: "plan-edit" %>
+      <%= link_to "削除", "#", class: "plan-delete" %>
+    <%# end %>
+    <p class="plan-price">¥5000</p>
+  </div>
+  <div class="plan-btn"><%= link_to "新規プラン作成", "#" %></div>
+</div>
+<%= render partial: "shared/footer" %>
