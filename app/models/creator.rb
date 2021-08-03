@@ -10,6 +10,7 @@ class Creator < ApplicationRecord
   end
 
   has_many :songs
+  has_many :plans
 
   mount_uploader :image, CreatorImageUploader
 end
