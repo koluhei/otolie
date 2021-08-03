@@ -15,7 +15,7 @@
 
     <div class="song-field">
       <%= f.label :audio, "オーディオファイル" %><br />
-      <%= f.file_field :audio %>
+      <%= f.file_field :audio, accept: ".wav, .mp3" %>
     </div>
 
     <div class="song-field description">
@@ -30,12 +30,12 @@
 
     <div class="song-field">
       <%= f.label :price, "販売価格(半角数字のみ)"%><br />
-      <%= f.text_field :price, autocomplete: "price" %>
+      <%= f.text_field :price, autocomplete: "price", placeholder: "50〜999,999"%>
     </div>
 
     <div class="song-field">
       <%= f.label :image, "アートワーク(任意)"%><br />
-      <%= f.file_field :image, autocomplete: "email" %>
+      <%= f.file_field :image, accept: ".png, .jpeg" %>
     </div>
 
     <div class="upload-action">

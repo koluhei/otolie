@@ -44,11 +44,5 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  version :mp3 do
-    process :convert => [{output_format: :mp3}]
 
-    def full_filename(for_file)
-      "#{super.chomp(File.extname(super))}.mp3"
-    end
-  end
 end
