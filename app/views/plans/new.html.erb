@@ -1,0 +1,39 @@
+<%= render partial: "shared/header" %>
+<div class="song-forms">
+  <% if request.fullpath.include?("new") %>
+    <h2 class="upload">Create your plan.</h2>
+  <%else%>
+    <h2 class="upload">Edit your plan.</h2>
+  <% end %>
+
+  <div class="song-forms">
+    <%= form_with model: [@creator, @plan], local: true do |f| %>
+      <%= render 'shared/errors', { target: @plan } %>
+
+      <div class="song-field">
+        <%= f.label :course, "プラン名" %><br />
+        <%= f.text_field :course, autofocus: true %>
+      </div>
+
+      <div class="song-field description">
+        <%= f.label :description, "プランの説明" %><br />
+        <%= f.text_area :description, placeholder: "例)歌詞のあるオリジナルソングを、ワンコーラス制作いたします。曲のジャンルなどはご相談ください。"%>
+      </div>
+
+      <div class="song-field">
+        <%= f.label :delivery, "納期" %><br />
+        <%= f.text_field :delivery, placeholder: "例)１ヶ月、60〜90日など" %>
+      </div>
+
+      <div class="song-field">
+        <%= f.label :price, "販売価格(半角数字のみ)"%><br />
+        <%= f.text_field :price, placeholder: "100〜999,999"%>
+      </div>
+
+      <div class="upload-action">
+        <%= f.submit "プラン作成", class: "upload-btn" %>
+      </div>
+    <% end %>
+  </div>
+<div>
+<%= render partial: "shared/footer" %>

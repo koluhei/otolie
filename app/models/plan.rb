@@ -1,4 +1,4 @@
-class Plan < ApplicationRecor
+class Plan < ApplicationRecord
   with_options presence: true do
     validates :course
     validates :description
