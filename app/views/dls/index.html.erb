@@ -2,7 +2,7 @@
 <div class ="dl-body">
   <h1 class="dl-confirm-logo">購入内容</h1>
   <div class="dl-confirm">
-  <% unless @song.image.present? %>
+  <% if @song.image == nil %>
     <%= image_tag "headphone", size:'200x200' ,class: "dl-image"%>
   <% else %>
     <%= image_tag @song.image.url, size: "200x200", class: "dl-image" %>
