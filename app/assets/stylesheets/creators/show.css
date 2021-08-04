@@ -5,7 +5,7 @@
 .profile-header{
   display: flex;
   justify-content: center;
-  background-image: url(https://i1.wp.com/threem-design.com/wp-content/uploads/youtube-bgm-eye.jpg?fit=1580%2C960&ssl=1);
+  background-image: url('/assets/header.jpeg');
   box-shadow: 2px 2px 4px gray;
   position: relative;
 }
