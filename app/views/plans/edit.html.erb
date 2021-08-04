@@ -1,10 +1,10 @@
 <%= render partial: "shared/header" %>
 <div class="song-forms">
 
-  <h2 class="upload">Create your plan.</h2>
+  <h2 class="upload">Edit your plan.</h2>
 
   <div class="song-forms">
-    <%= form_with model: [@creator, @plan], url: creator_plans_path(current_creator.id), local: true do |f| %>
+    <%= form_with model: [@creator, @plan], url: creator_plan_path(current_creator.id, @plan.id), method: :patch, local: true do |f| %>
       <%= render 'shared/errors', { target: @plan } %>
 
       <div class="song-field">

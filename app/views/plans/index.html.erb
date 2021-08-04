@@ -10,8 +10,8 @@
         <%= plan.description %>
       </p>
       <% if creator_signed_in? && plan.creator.id == current_creator.id %>
-        <%= link_to "編集", "#", class: "plan-edit" %>
-        <%= link_to "削除", "#", class: "plan-delete" %>
+        <%= link_to "編集", edit_creator_plan_path(current_creator.id, plan.id), class: "plan-edit" %>
+        <%= link_to "削除", creator_plan_path(current_creator.id, plan.id), method: :delete, class: "plan-delete" %>
       <% end %>
       <p class="plan-price">¥<%= plan.price %></p>
     </div>
