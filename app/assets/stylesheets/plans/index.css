@@ -1,0 +1,83 @@
+.plan-index-body{
+  margin-top: 10vh;
+  background-color: floralwhite;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.plan-logo{
+  font-size: 60px;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  border-bottom: 4px solid orange;
+  width: 30%;
+  margin: 50px auto;
+}
+
+.plan{
+  height: 250px;
+  width: 700px;
+  margin: auto;
+  margin-bottom: 80px;
+  background-image: url('../music-musician.png');
+  position: relative;
+  background-color:dimgrey;
+  color: aliceblue;
+  box-shadow: 40px 20px rgb(196, 217, 221);
+}
+
+.plan-course{
+  position: absolute;
+  font-size: 40px;
+  color: aliceblue;
+  letter-spacing: 3px;
+  left: 30px;
+  top: 5px;
+}
+
+.plan-description{
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  width: 70%;
+}
+.plan-price{
+  font-size: 30px;
+  position: absolute;
+  bottom: 30px;
+  right:40px;
+  letter-spacing: 2px;
+}
+
+.plan-edit{
+  position: absolute;
+  bottom: 0;
+  margin: 8px;
+  right: 60px;
+  color: aliceblue;
+  border: 1px solid aliceblue;
+  padding: 0 3px;
+}
+
+.plan-delete{
+  position: absolute;
+  bottom: 0;
+  margin: 8px;
+  right: 10px;
+  color: aliceblue;
+  border: 1px solid aliceblue;
+  padding: 0 3px;
+}
+
+.plan-btn{
+  font-size: 25px;
+  border: 1px solid rgb(179, 179, 179);
+  height: 70px;
+  width: 300px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 187, 60);
+  letter-spacing: 3px;
+}

@@ -50,9 +50,9 @@
       <!--クリエイターマイページへのリンク&アイコン-->
       <% if creator_signed_in? %>
         <% unless current_creator.image.present? %>
-          <%= link_to image_tag("user_icon", size:'45x45' ,class: "header-image"), "#" %>
+          <%= link_to image_tag("user_icon", size:'45x45' ,class: "header-image"), creator_path(current_creator.id) %>
         <% else %>
-          <%= link_to image_tag(current_creator.image.url, size:'45x45', class: "header-image"), "#" %>
+          <%= link_to image_tag(current_creator.image.url, size:'45x45', class: "header-image"), creator_path(current_creator.id) %>
         <% end %>
          <%= link_to "#{current_creator.name} -creator", creator_path(current_creator.id), class: "header-username" %>
       <% end %>

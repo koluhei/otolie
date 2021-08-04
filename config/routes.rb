@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :creators
   devise_for :users
+
   root to: "songs#index"
+
   resources :songs do
     resources :dls, only: [:index, :create] do
       collection do
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
       end
     end
   end  
-  resources :creators, only: [:show]
   resources :users, only: [:show]
+  resources :creators, only: [:show] do
+    resources :plans, except: :show
+  end
 end

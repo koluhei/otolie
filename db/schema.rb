@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_30_052302) do
+ActiveRecord::Schema.define(version: 2021_08_03_070513) do
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 2021_07_30_052302) do
     t.index ["song_id"], name: "index_dls_on_song_id"
     t.index ["user_id", "song_id"], name: "index_dls_on_user_id_and_song_id", unique: true
     t.index ["user_id"], name: "index_dls_on_user_id"
+  end
+
+  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "course", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
+    t.string "delivery", null: false
+    t.bigint "creator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_plans_on_creator_id"
   end
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -67,5 +78,6 @@ ActiveRecord::Schema.define(version: 2021_07_30_052302) do
 
   add_foreign_key "dls", "songs"
   add_foreign_key "dls", "users"
+  add_foreign_key "plans", "creators"
   add_foreign_key "songs", "creators"
 end
