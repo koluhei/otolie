@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   end  
   resources :users, only: [:show]
   resources :creators, only: [:show] do
-    resources :plans, except: :show
+    resources :plans, except: :show do
+      resources :orders, only: [:index, :create]
+    end
   end
+  
 end

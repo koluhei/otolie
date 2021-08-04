@@ -1,0 +1,56 @@
+<%= render partial:"shared/header" %>
+
+<div class="order-index">
+  <div class="order-forms">
+    <h1 class="dl-confirm-logo">作曲依頼</h2>
+    <div class="plan">  
+      <%= link_to @plan.course , "#", class: "plan-course" %>
+      <p class="plan-description">
+      <%= @plan.description %>
+      </p>
+    <p class="plan-price">¥<%= @plan.price %></p>
+</div>
+    <%= form_with model: @order_request, url: creator_plan_orders_path(params[:creator_id], params[:plan_id]), local: true do |f| %>
+      <%= render 'shared/errors', { target: @order_request } %>
+      <div class="song-field">
+        <%= f.label :title, "使用用途" %><br />
+        <%= f.text_field :title, autofocus: true, placeholder: "製作中の動画に使用" %>
+      </div>
+
+      <div class="song-field description">
+        <%= f.label :description, "仕様、要望など" %><br />
+        <%= f.text_area :description, placeholder: "明るくポップな、５分程度の楽曲をお願いいたします。" %>
+      </div>
+
+      <h1 class="dl-confirm-logo">カード情報入力</h1>
+      <div class="dl-forms">
+      <div class="song-field">
+        <%= f.label :number, "クレジットカード番号" %><br />
+        <%= f.text_field :number, autofocus: true, id: "card-number", placeholder: "カード番号(半角数字)", maxlength: "16" %>
+      </div>
+      <div class='available-cards'>
+          <%= image_tag 'card-visa.gif', size: "40x35", class: 'card-logo'%>
+          <%= image_tag 'card-mastercard.gif', size: "40x35", class: 'card-logo'%>
+          <%= image_tag 'card-jcb.gif', size: "40x35", class: 'card-logo'%>
+          <%= image_tag 'card-amex.gif', size: "40x35", class: 'card-logo'%>
+        </div>
+
+      <div class="exp-field">
+        <%= f.label :exp_month, "有効期限" %><br />
+          <%= f.text_field :exp_month, id: "card-exp-month", class: "month", placeholder: "例)3", maxlength: "2" %>
+          <%= f.text_field :exp_year, id: "card-exp-year", class: "year", placeholder: "例)22", maxlength: "2" %>
+      </div>
+
+      <div class="song-field">
+        <%= f.label :cvc, "セキュリティコード"%><br />
+        <%= f.text_field :cvc, id: "card-cvc" , placeholder: "カード背面３桁もしくは４桁の番号", maxlength: "4"%>
+      </div>
+
+      <div class="dl-action">
+        <%= f.submit "依頼する", class: "upload-btn", id: "purchase-btn" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+<%= render partial:"shared/footer" %>

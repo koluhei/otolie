@@ -5,7 +5,7 @@
   <h1 class="plan-logo">Plans</h1>
   <% @plans.each do |plan| %>
     <div class="plan">  
-      <%= link_to plan.course , "#", class: "plan-course" %>
+      <%= link_to plan.course , creator_plan_orders_path(@creator.id, plan.id), class: "plan-course" %>
       <p class="plan-description">
         <%= plan.description %>
       </p>

@@ -15,7 +15,7 @@
     <h1 class="profile-logo">Profile</h1>
     <p class="profile-text"><%= @creator.profile %></p>
     <% if user_signed_in? %>
-      <div class="request-btn"><%= link_to '作曲依頼', '#' %></div>
+      <div class="request-btn"><%= link_to '作曲依頼', creator_plans_path(@creator.id) %></div>
     <% elsif creator_signed_in? && current_creator.id == @creator.id %>
       <div class="request-btn"><%= link_to '編集する', edit_creator_registration_path %></div>
       <div class="request-btn"><%= link_to 'プラン一覧', creator_plans_path(current_creator.id) %></div>
