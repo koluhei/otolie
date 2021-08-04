@@ -15,7 +15,7 @@
 	z-index:-1;
 	width:100%;
 	height: 100vh;
-	background:url("https://i1.wp.com/threem-design.com/wp-content/uploads/youtube-bgm-eye.jpg?fit=1580%2C960&ssl=1") no-repeat center;/*背景画像設定※オリジナル画像を設定してください*/
+	background:url("../header.jpeg") no-repeat center;/*背景画像設定※オリジナル画像を設定してください*/
 	background-size:cover;
 }
 
