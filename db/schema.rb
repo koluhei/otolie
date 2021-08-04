@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_070513) do
+ActiveRecord::Schema.define(version: 2021_08_04_080325) do
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 2021_08_03_070513) do
     t.index ["user_id"], name: "index_dls_on_user_id"
   end
 
+  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "plan_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plan_id"], name: "index_orders_on_plan_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "course", null: false
     t.text "description", null: false
@@ -46,6 +55,15 @@ ActiveRecord::Schema.define(version: 2021_08_03_070513) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_id"], name: "index_plans_on_creator_id"
+  end
+
+  create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "porpose", null: false
+    t.text "demand", null: false
+    t.bigint "order_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_requests_on_order_id"
   end
 
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,6 +96,9 @@ ActiveRecord::Schema.define(version: 2021_08_03_070513) do
 
   add_foreign_key "dls", "songs"
   add_foreign_key "dls", "users"
+  add_foreign_key "orders", "plans"
+  add_foreign_key "orders", "users"
   add_foreign_key "plans", "creators"
+  add_foreign_key "requests", "orders"
   add_foreign_key "songs", "creators"
 end
