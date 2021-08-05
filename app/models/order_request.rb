@@ -1,11 +1,10 @@
 class OrderRequest
   include ActiveModel::Model
-  attr_accessor :purpose, :demand, :order_id, :user_id, :plan_id
+  attr_accessor :purpose, :demand, :order_id, :user_id, :plan_id, :token
 
   with_options presence: true do
     validates :purpose
     validates :demand
-    validates :order_id
     validates :user_id
     validates :plan_id
   end

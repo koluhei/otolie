@@ -4,22 +4,22 @@
   <div class="order-forms">
     <h1 class="dl-confirm-logo">作曲依頼</h2>
     <div class="plan">  
-      <%= link_to @plan.course , "#", class: "plan-course" %>
+      <h1 class="plan-course"><%= @plan.course %></h2>
       <p class="plan-description">
       <%= @plan.description %>
       </p>
-    <p class="plan-price">¥<%= @plan.price %></p>
-</div>
-    <%= form_with model: @order_request, url: creator_plan_orders_path(params[:creator_id], params[:plan_id]), local: true do |f| %>
+      <p class="plan-price">¥<%= @plan.price %></p>
+    </div>
+    <%= form_with model: @order_request, url: creator_plan_orders_path(params[:creator_id], params[:plan_id]), id: 'dl-form', local: true do |f| %>
       <%= render 'shared/errors', { target: @order_request } %>
       <div class="song-field">
-        <%= f.label :title, "使用用途" %><br />
-        <%= f.text_field :title, autofocus: true, placeholder: "製作中の動画に使用" %>
+        <%= f.label :purpose, "使用用途" %><br />
+        <%= f.text_field :purpose, autofocus: true, placeholder: "例)製作中の動画に使用" %>
       </div>
 
       <div class="song-field description">
-        <%= f.label :description, "仕様、要望など" %><br />
-        <%= f.text_area :description, placeholder: "明るくポップな、５分程度の楽曲をお願いいたします。" %>
+        <%= f.label :demand, "仕様、要望など" %><br />
+        <%= f.text_area :demand, placeholder: "例)明るくポップな、５分程度の楽曲をお願いいたします。" %>
       </div>
 
       <h1 class="dl-confirm-logo">カード情報入力</h1>
