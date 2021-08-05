@@ -8,7 +8,11 @@
   <% end %>
   <% @plans.each do |plan| %>
     <div class="plan">  
-      <%= link_to plan.course , creator_plan_orders_path(@creator.id, plan.id), class: "plan-course" %>
+      <% if user_signed_in? %>
+        <%= link_to plan.course , creator_plan_orders_path(@creator.id, plan.id), class: "plan-course" %>
+      <% else %>
+        <p class="plan-course"><%= plan.course %></p>
+      <% end %>
       <p class="plan-description">
         <%= plan.description %>
       </p>

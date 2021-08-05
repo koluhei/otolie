@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  before_action :only_user_can_order
+
   def index
     @creator = Creator.find(params[:creator_id])
     @plan = Plan.find(params[:plan_id])
@@ -33,4 +36,14 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def only_user_can_order
+    if creator_signed_in?
+      redirect_to root_path
+    elsif user_signed_in?
+    else
+      authenticate_user!
+    end
+  end
+    
 end
