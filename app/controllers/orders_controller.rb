@@ -24,10 +24,6 @@ class OrdersController < ApplicationController
 
 
   private
-  def order_params
-    params.require(:order_request).permit(:purpose, :demand).merge(token: params[:token], user_id: current_user.id, plan_id: params[:plan_id])
-  end
-
   def pay_plan
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
     Payjp::Charge.create(
@@ -35,6 +31,10 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def order_params
+    params.require(:order_request).permit(:purpose, :demand).merge(token: params[:token], user_id: current_user.id, plan_id: params[:plan_id])
   end
 
   def only_user_can_order
