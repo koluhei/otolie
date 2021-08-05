@@ -3,9 +3,16 @@
   <%= render partial: "shared/creator_profile", locals: { creator: @creator } %>
 <div class="plan-index-main">
   <h1 class="plan-logo">Plans</h1>
+  <% unless @plans.present? %>
+    <p class="no-plans">現在依頼を受け付けていません。</p>
+  <% end %>
   <% @plans.each do |plan| %>
     <div class="plan">  
-      <%= link_to plan.course , "#", class: "plan-course" %>
+      <% if user_signed_in? %>
+        <%= link_to plan.course , creator_plan_orders_path(@creator.id, plan.id), class: "plan-course" %>
+      <% else %>
+        <p class="plan-course"><%= plan.course %></p>
+      <% end %>
       <p class="plan-description">
         <%= plan.description %>
       </p>

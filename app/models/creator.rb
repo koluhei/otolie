@@ -10,7 +10,7 @@ class Creator < ApplicationRecord
   end
 
   has_many :songs
-  has_many :plans
+  has_many :plans, dependent: :destroy
 
   mount_uploader :image, CreatorImageUploader
 end

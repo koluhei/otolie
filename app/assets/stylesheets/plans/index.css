@@ -25,7 +25,11 @@
   color: aliceblue;
   box-shadow: 40px 20px rgb(196, 217, 221);
 }
-
+.no-plans{
+  font-size: 20px;
+  width: fit-content;
+  margin: auto;
+}
 .plan-course{
   position: absolute;
   font-size: 40px;
