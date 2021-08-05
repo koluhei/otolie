@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :song
+  belongs_to :plan
   has_one :request
 end

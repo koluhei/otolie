@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
   def index
+    @creator = Creator.find(params[:creator_id])
     @plan = Plan.find(params[:plan_id])
     @order_request = OrderRequest.new
   end
 
   def create
+    @creator = Creator.find(params[:creator_id])
     @plan = Plan.find(params[:plan_id])
     @order_request = OrderRequest.new(order_params)
     if @order_request.valid?
@@ -27,7 +29,7 @@ class OrdersController < ApplicationController
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
     Payjp::Charge.create(
       amount: @plan.price,
-      card: params[:token],
+      card: order_params[:token],
       currency: 'jpy'
     )
   end

@@ -2,7 +2,7 @@ class PlansController < ApplicationController
 
   def index
     @creator = Creator.find(params[:creator_id])
-    @plans = Plan.all
+    @plans = @creator.plans
   end
 
   def new
