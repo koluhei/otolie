@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   has_many :dls
   has_many :songs, through: :dls
+  has_many :chats
+  has_many :messages
 
   mount_uploader :image, UserImageUploader
 end

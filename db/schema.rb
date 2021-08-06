@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_04_080325) do
+ActiveRecord::Schema.define(version: 2021_08_06_020147) do
+
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "creator_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_chats_on_creator_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
 
   create_table "creators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -94,6 +103,8 @@ ActiveRecord::Schema.define(version: 2021_08_04_080325) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chats", "creators"
+  add_foreign_key "chats", "users"
   add_foreign_key "dls", "songs"
   add_foreign_key "dls", "users"
   add_foreign_key "orders", "plans"
