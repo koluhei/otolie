@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_020147) do
+ActiveRecord::Schema.define(version: 2021_08_06_021142) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "creator_id"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 2021_08_06_020147) do
     t.index ["song_id"], name: "index_dls_on_song_id"
     t.index ["user_id", "song_id"], name: "index_dls_on_user_id_and_song_id", unique: true
     t.index ["user_id"], name: "index_dls_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "user_id"
+    t.bigint "creator_id"
+    t.bigint "chat_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["creator_id"], name: "index_messages_on_creator_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,6 +119,9 @@ ActiveRecord::Schema.define(version: 2021_08_06_020147) do
   add_foreign_key "chats", "users"
   add_foreign_key "dls", "songs"
   add_foreign_key "dls", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "creators"
+  add_foreign_key "messages", "users"
   add_foreign_key "orders", "plans"
   add_foreign_key "orders", "users"
   add_foreign_key "plans", "creators"

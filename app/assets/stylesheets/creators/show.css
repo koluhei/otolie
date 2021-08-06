@@ -40,6 +40,19 @@
   left: 70%;
 }
 
+.dm-btn{
+  position: absolute;
+  top: 76%;
+  left: 80%;
+}
+
+button{
+  text-decoration: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .profile-main{
   display: flex;
   justify-content: center;

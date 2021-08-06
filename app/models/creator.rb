@@ -11,8 +11,8 @@ class Creator < ApplicationRecord
 
   has_many :songs
   has_many :plans, dependent: :destroy
-  has_many :chats
-  has_many :messages
+  has_many :chats, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   mount_uploader :image, CreatorImageUploader
 end
