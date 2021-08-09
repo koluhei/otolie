@@ -11,18 +11,61 @@
     <% end %>
   </div>
 </div>
-<div class="chat-body">
-  <div class="left-message">
-    <%= image_tag "user_icon", size: "50x50", class: "left-message-img" %>
-    <p class="left-message-text">ここにテキストが入りますよ</p>
-    <p class="left-message-time">2021/8/9</p>
-  </div>
-  <div class="right-message">
-    <p class="right-message-time">2021/8/9</p>
-    <p class="right-message-text">ここにテキストが入りますよ</p>
-    <%= image_tag "user_icon", size: "50x50", class: "right-message-img" %>
-  </div>
-</div>
+
+<div class="chat-body"><!--以下メッセージ -->
+  <% if user_signed_in? %><!--ユーザーログイン時の表示-->
+    <% @messages.each do |message| %>
+      <% if message.creator_id.present? %>
+        <div class="left-message">
+          <% if @chat.creator.image.present? %>
+            <%= image_tag @chat.creator.image.url, size: "50x50", class: "left-message-img" %>
+          <% else %>
+            <%= image_tag "user_icon", size: "50x50", class: "left-message-img" %>
+          <% end %>
+          <p class="left-message-text"><%= message.text %></p>
+          <p class="left-message-time"><%= message.created_at.strftime('%Y/%m/%d') %></p>
+        </div>
+      <% else %>
+        <div class="right-message">
+          <p class="right-message-time"><%= message.created_at.strftime('%Y/%m/%d') %></p>
+          <p class="right-message-text"><%= message.text %></p>
+          <% if @chat.user.image.present? %>
+            <%= image_tag @chat.user.image.url, size: "50x50", class: "right-message-img" %>
+          <% else %>
+            <%= image_tag "user_icon", size: "50x50", class: "right-message-img" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>  
+  <% end %><!--/ユーザーログイン時の表示-->
+
+  <% if creator_signed_in? %><!--クリエイターログイン時の表示-->
+    <% @messages.each do |message| %>
+      <% if message.user_id.present? %>
+        <div class="left-message">
+          <% if @chat.user.image.present? %>
+            <%= image_tag @chat.user.image.url, size: "50x50", class: "left-message-img" %>
+          <% else %>
+            <%= image_tag "user_icon", size: "50x50", class: "left-message-img" %>
+          <% end %>
+          <p class="left-message-text"><%= message.text %></p>
+          <p class="left-message-time"><%= message.created_at.strftime('%Y/%m/%d') %></p>
+        </div>
+      <% else %>
+        <div class="right-message">
+          <p class="right-message-time"><%= message.created_at.strftime('%Y/%m/%d') %></p>
+          <p class="right-message-text"><%= message.text %></p>
+          <% if @chat.creator.image.present? %>
+            <%= image_tag @chat.creator.image.url, size: "50x50", class: "right-message-img" %>
+          <% else %>
+            <%= image_tag "user_icon", size: "50x50", class: "right-message-img" %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>  
+  <% end %><!--/クリエイターログイン時の表示-->
+</div><!--/メッセージ-->
+
 <div class="chat-bottom">
   <%= form_with model: [@chat, @message], class: "chat-form", local: true do |f| %>
     <div class="chat-field">

@@ -38,14 +38,15 @@
 
 .chat-body{
   background-color: floralwhite;
-  height: 100vh;
+  height: 75vh;
   overflow: scroll;
   padding-top: 10vh;
+  padding-bottom: 15vh;
 }
 
 .left-message{
   display: flex;
-  margin: 10px 30vw 10px 60px;
+  margin: 10px 30vw 10px 100px;
   position: relative;
   font-family: 'Noto Sans JP', sans-serif;
   width: fit-content;
@@ -74,7 +75,7 @@
 .right-message{
   display: flex;
   margin: 10px 0 10px auto;
-  padding-right: 60px;
+  padding-right: 100px;
   position: relative;
   font-family: 'Noto Sans JP', sans-serif;
   width: fit-content;
@@ -106,7 +107,7 @@
   position: fixed;
   width: 100vw;
   background-color: rgb(54, 61, 65);
-  height: 15%;
+  height: 15vh;
   bottom:0;
   font-family: 'Noto Sans JP', sans-serif;
 }
