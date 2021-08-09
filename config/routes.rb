@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       resources :orders, only: [:index, :create]
     end
   end
-  resources :chats, only: [:create] do
+  resources :chats, only: [:index, :create] do
     resources :messages, only: [:index, :create] 
   end
 end
