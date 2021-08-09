@@ -9,12 +9,20 @@
       <% end %>
       <h2 class="profile-name"><%= @creator.name %></h2>  
       <p class="what-kind">-Creator-</p>
+      <% if user_signed_in? %>
+        <div class='dm-btn'>
+          <%= button_to chats_path(creator_id: @creator.id) do %>
+            <%= image_tag "mail_icon.png" , size: '35x35' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>  
   </div>
   <div class="profile-main">
     <h1 class="profile-logo">Profile</h1>
     <p class="profile-text"><%= @creator.profile %></p>
     <% if user_signed_in? %>
+
       <div class="request-btn"><%= link_to '作曲依頼', creator_plans_path(@creator.id) %></div>
     <% elsif creator_signed_in? && current_creator.id == @creator.id %>
       <div class="request-btn"><%= link_to '編集する', edit_creator_registration_path %></div>
@@ -23,6 +31,7 @@
       <div class="request-btn"><%= link_to 'プラン一覧', creator_plans_path(@creator.id) %></div>
     <% end %>
   </div>
+
   <h1 class="music-logo">Music</h1> 
   <%= render partial: 'shared/song', collection: @songs %>
   <%= render partial: "shared/footer" %>

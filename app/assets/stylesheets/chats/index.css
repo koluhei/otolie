@@ -1,0 +1,38 @@
+.chat-index-body{
+  margin-top: 10vh;
+  padding-top: 10px;
+  background-color: floralwhite;
+  height: 90vh;
+  overflow:scroll;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+.chat-head{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color:coral;
+  font-size: 50px;
+  letter-spacing: 7px;
+  margin-bottom: 20px;
+}
+
+.chat-user{
+  padding: 10px 0;
+  display: flex;
+  margin-left: 25%;
+  border-bottom: 1px solid orange;
+  width: 50%
+}
+
+.chat-index-img{
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.chat-index-text{
+  color:rgb(133, 119, 93);
+  margin-left: 10px;
+  overflow: hidden;
+}
+

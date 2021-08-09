@@ -1,0 +1,43 @@
+<%= render "shared/header" %>
+<div class="chat-index-body">
+  <div class="chat-head">Messages</div>
+  <% if user_signed_in? %>
+    <% @chats.each do |chat| %>
+      <%= link_to chat_messages_path(chat.id) do %>
+        <div class="chat-user">
+          <% if chat.creator.image.present? %>
+            <%= image_tag chat.creator.image.url, size: "60x60", class: "chat-index-img" %>
+          <% else %>
+            <%= image_tag "user_icon", size: "60x60", class: "chat-index-img" %>
+          <% end %>
+          <div class="chat-index-right">
+            <p class="chat-index-name"><%= chat.creator.name %></p>
+            <% if chat.messages.present?%>
+              <p class="chat-index-text"><%= chat.messages.last.text %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if creator_signed_in? %>
+    <% @chats.each do |chat| %>
+      <%= link_to chat_messages_path(chat.id) do %>
+        <div class="chat-user"> 
+          <% if chat.user.image.present? %>
+            <%= image_tag chat.user.image.url, size: "60x60", class: "chat-index-img" %>
+          <% else %>
+            <%= image_tag "user_icon", size: "60x60", class: "chat-index-img" %>
+          <% end %>
+          <div class="chat-index-right">
+            <p class="chat-index-name"><%= chat.user.name %></p>
+            <% if chat.messages.present?%>
+              <p class="chat-index-text"><%= chat.messages.last.text %></p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
