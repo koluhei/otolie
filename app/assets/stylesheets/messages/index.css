@@ -1,0 +1,134 @@
+.chat-header-fix{
+  position: fixed;
+  z-index: 10;
+}
+
+.chat-header{
+  height: 10vh;
+  width: 100vw;
+  background-color:rgb(235, 207, 155);
+  position: relative;
+  font-family: 'Noto Sans JP', sans-serif;
+  z-index: 5;
+}
+
+.back-arrow{
+  position: absolute;
+  left: 3%;
+  top: 21%;
+}
+
+.chat-name{
+  position: absolute;
+  font-size: 30px;
+  transform: translate(-50%);
+  left:50%;
+  top:10px;
+  letter-spacing: 2px;
+}
+
+.chat-user-creator{
+  position: absolute;
+  bottom: 15%;
+  font-family: 'Source Code Pro', monospace;
+  transform: translate(-50%);
+  left:50%;
+  color:rgb(153, 136, 106);
+}
+
+.chat-body{
+  background-color: floralwhite;
+  height: 100vh;
+  overflow: scroll;
+  padding-top: 10vh;
+}
+
+.left-message{
+  display: flex;
+  margin: 10px 30vw 10px 60px;
+  position: relative;
+  font-family: 'Noto Sans JP', sans-serif;
+  width: fit-content;
+}
+
+.left-message-img{
+  border-radius: 50%;
+}
+
+.left-message-text{
+  margin: 10px;
+  background-color: rgb(255, 198, 92);
+  padding: 4px 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  border-radius: 0 10px 10px 10px;
+}
+
+.left-message-time{
+  position: absolute;
+  bottom: 5px;
+  left: 100%;
+  color: slategray;
+  font-size: 14px;
+}
+
+.right-message{
+  display: flex;
+  margin: 10px 0 10px auto;
+  padding-right: 60px;
+  position: relative;
+  font-family: 'Noto Sans JP', sans-serif;
+  width: fit-content;
+  right: 10px;
+}
+
+.right-message-img{
+  border-radius: 50%;
+}
+
+.right-message-text{
+  margin: 10px;
+  background-color: rgb(255, 198, 92);
+  padding: 4px 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  border-radius: 10px 0 10px 10px;
+}
+
+.right-message-time{
+  position: absolute;
+  bottom: 5px;
+  right: 100%;
+  color: slategray;
+  font-size: 14px;
+}
+
+
+.chat-bottom{
+  position: fixed;
+  width: 100vw;
+  background-color: rgb(54, 61, 65);
+  height: 15%;
+  bottom:0;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.chat-form{
+  display: flex;
+  width:100vw;
+}
+
+.chat-field textarea{
+  width: 1100px;
+  border:none;
+  background-color: transparent;
+  border-bottom: 2px solid cadetblue;
+  color: aliceblue;
+  margin: 30px 20px 0 90px;
+  font-size: 20px;
+}
+
+.chat-submit-btn{
+  border: none;
+  margin: 30px 0 0 20px;
+  color: aliceblue;
+  filter: brightness(1.6);
+}
