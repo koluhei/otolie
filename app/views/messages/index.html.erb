@@ -67,12 +67,12 @@
 </div><!--/メッセージ-->
 
 <div class="chat-bottom">
-  <%= form_with model: [@chat, @message], class: "chat-form", local: true do |f| %>
+  <%= form_with model: [@chat, @message], class: "chat-form", id: "chat-form", local: true do |f| %>
     <div class="chat-field">
       <%= f.text_area :text, placeholder: "メッセージを入力してください" %>
     </div>
     <div class="chat-submit">
-      <%= image_submit_tag("send.png", class: "chat-submit-btn") %>
+      <%= image_submit_tag("send.png", class: "chat-submit-btn", id:"chat-send-btn") %>
     </div>
   <% end %> 
 </div>

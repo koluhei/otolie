@@ -10,6 +10,7 @@ require("channels")
 require("../index")
 require("../card")
 require("../order_card")
+//require("../message") Ajax実装のためのjs（未完成）
 require("jquery")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
