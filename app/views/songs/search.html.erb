@@ -1,0 +1,11 @@
+<%= render "shared/header" %>
+<div class="search-music-body">
+  <div class="chat-head">Music</div>
+  <div class="search-songs">
+  <% unless @results.present? %>
+    <p>該当する楽曲はありませんでした。</p>
+  <% end %>
+  <%= render partial: 'shared/song', collection: @results %>
+  </div>
+</div>
+<%= render "shared/footer" %>

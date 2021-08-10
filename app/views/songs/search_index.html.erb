@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+<div class="search-music-body">
+  <div class="chat-head">Music</div>
+  <%= search_form_for @q, url: search_songs_path do |f| %>
+  <div class="search">
+    <%= f.collection_select :genre_id_eq, Genre.all, :id, :name, include_blank: "全てのジャンル", class: "search-genre"%>
+    <%= f.search_field :title_or_description_cont, class: "search-form" %>
+    <%= image_submit_tag("search_icon.png", class: "search-btn", size: "30x30") %>
+  </div>
+  <% end %>
+  <div class="search-songs">
+    <%= render partial: 'shared/song', collection: @songs %>
+  </div>
+</div>
+<%= render "shared/footer" %>

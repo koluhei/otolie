@@ -10,12 +10,14 @@
   <div class="index-header-body">
     <div class="header-logo"><%= link_to "OTOLIE", root_path %></li></div>
     <ul class="header-navs">
-      <li class="nav"><%= link_to "Top", root_path %></li>
+      <li class="nav"><%= link_to "Musics", search_index_songs_path %></li>
       <% if user_signed_in? %>
+        <li class="nav"><%= link_to "Creator", creators_path %></li>
         <li class="nav"><%= link_to "Message", chats_path %></li>
         <li class="nav"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       <% elsif creator_signed_in? %>
         <li class="nav"><%= link_to "Upload", new_song_path %></li>
+        <li class="nav"><%= link_to "User", users_path %></li>
         <li class="nav"><%= link_to "Message", chats_path %></li>
         <li class="nav"><%= link_to "Log out", destroy_creator_session_path, method: :delete %></li>
       <% else %>

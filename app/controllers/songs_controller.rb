@@ -1,7 +1,8 @@
 class SongsController < ApplicationController
-  before_action :only_creator, except: [:index, :show]
+  before_action :only_creator, except: [:index, :show, :search_index, :search]
   before_action :move_to_index, only: [:edit, :update, :destroy]
   before_action :set_song, only: [:show, :edit, :update, :destroy]
+  before_action :set_q, only: [:search_index, :search]
 
   def index
     @songs = Song.includes(:creator)
@@ -40,6 +41,14 @@ class SongsController < ApplicationController
     redirect_to root_path
   end
 
+  def search_index
+    @songs = Song.includes(:creator)
+  end
+
+  def search
+    @results = @q.result
+  end
+
 
 
   private
@@ -65,5 +74,9 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:title, :audio, :genre_id, :description, :price, :image).merge(creator_id: current_creator.id)
+  end
+
+  def set_q
+    @q = Song.ransack(params[:q])
   end
 end

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   root to: "songs#index"
 
   resources :songs do
+    collection do
+      get 'search_index'
+      get 'search'
+    end
     resources :dls, only: [:index, :create] do
       collection do
         get 'download_page'
@@ -12,10 +16,17 @@ Rails.application.routes.draw do
       end
     end
   end  
-  resources :users, only: [:show]
-  resources :creators, only: [:show] do
+  resources :users, only: [:index, :show] do
+    collection do
+      get 'search'
+    end
+  end
+  resources :creators, only: [:index, :show] do
     resources :plans, except: :show do
       resources :orders, only: [:index, :create]
+    end
+    collection do
+      get 'search'
     end
   end
   resources :chats, only: [:index, :create] do

@@ -1,0 +1,16 @@
+<%= render "shared/header" %>    
+
+<div class="chat-index-body">
+  <div class="chat-head">Creators</div>
+    <% unless @results.present? %>
+      <p>該当するユーザーはいませんでした。</p>
+    <% end %>
+    <% @results.each do |creator| %>
+      <%= link_to creator_path(creator.id) do %>
+        <%= render partial: "shared/user_list", locals: {user: creator} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
