@@ -1,0 +1,32 @@
+.search-music-body{
+  margin-top: 10vh;
+  padding-top: 10px;
+  background-color: floralwhite;
+  height: 90vh;
+  overflow:scroll;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 30px;
+}
+
+.search-music-logo{
+  font-size: 60px;
+  letter-spacing: 5px;
+  text-align: center;
+  margin: 50px; 
+  font-family: 'Lato', sans-serif;
+  border-bottom: 4px solid orange;
+  width: 30%;
+}
+
+.search-songs{
+  width: fit-content;
+  margin: auto;
+}
+
+#q_genre_id_eq{
+  position: absolute;
+  left: 300px;
+  height: 42px;
+  border: none;
+  border-bottom: 2px solid orange;
+}
