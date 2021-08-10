@@ -1,0 +1,11 @@
+<div class="chat-user">
+  <% if user.image.present? %>
+    <%= image_tag user.image.url, size: "60x60", class: "chat-index-img" %>
+  <% else %>
+    <%= image_tag "user_icon", size: "60x60", class: "chat-index-img" %>
+  <% end %>
+  <div class="chat-index-right">
+    <p class="chat-index-name"><%= user.name %></p>
+    <p class="chat-index-text"><%= user.profile %></p>
+  </div>
+</div>

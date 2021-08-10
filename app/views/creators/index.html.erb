@@ -1,0 +1,18 @@
+<%= render "shared/header"%>
+<div class="chat-index-body">
+  <div class="chat-head">Creators</div>
+    <%= search_form_for @q, url: search_creators_path do |f| %>
+    <div class="search">
+      <%= f.search_field :name_or_profile_cont, placeholder: "クリエイター名・プロフィールを検索できます", class: "search-form" %>
+      <%= image_submit_tag("search_icon.png", class: "search-btn", size: "30x30") %>
+    </div>
+    <% end %>
+    <% @creators.each do |creator| %>
+      <%= link_to creator_path(creator.id) do %>
+        <%= render partial: "shared/user_list", locals: {user: creator} %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

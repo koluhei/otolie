@@ -60,3 +60,4 @@ gem "jquery-rails"
 gem 'rails-i18n'
 gem 'pry-rails'
 gem 'payjp'
+gem 'ransack'
