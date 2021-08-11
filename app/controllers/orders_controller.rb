@@ -15,7 +15,8 @@ class OrdersController < ApplicationController
     if @order_request.valid?
       pay_plan
       @order_request.save
-      redirect_to root_path
+      send_order_message_to_creator
+      redirect_to chat_messages_path(@chat.id)
     else
       render :index
     end
@@ -46,4 +47,13 @@ class OrdersController < ApplicationController
     end
   end
     
+  def send_order_message_to_creator
+    if Chat.where(user_id: current_user.id, creator_id: params[:creator_id]).present?
+      @chat = Chat.find_by(user_id: current_user.id, creator_id: params[:creator_id])
+    else
+      @chat = Chat.create(user_id: current_user.id, creator_id: params[:creator_id])
+    end
+    Message.create(text: "#{current_user.name}さんが『#{@plan.course}』で作曲依頼をしました。", user_id: current_user.id, chat_id: @chat.id)
+    Message.create(text: "使用用途：\n#{@order_request.purpose}\n\n要望：\n#{@order_request.demand}", user_id: current_user.id, chat_id: @chat.id)
+  end
 end
