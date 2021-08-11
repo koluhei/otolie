@@ -25,6 +25,13 @@ ja:
         profile: プロフィール
         current_password: 現在のパスワード
 
+      plan:
+        course: プラン名
+        description: プラン内容
+        price: 価格
+        delivery: 納期
+        creator: クリエイター
+
       dl:
         token: カード情報
 

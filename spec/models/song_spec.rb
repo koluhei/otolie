@@ -59,6 +59,11 @@ RSpec.describe Song, type: :model do
         @song.valid?
         expect(@song.errors.full_messages).to include('価格は999999以下の値にしてください')
       end
+      it '価格は全角数字では登録できない' do
+        @song.price = '１０００'
+        @song.valid?
+        expect(@song.errors.full_messages).to include('価格は数値で入力してください')
+      end
       it 'クリエイターが紐づいていないとアップロードできない' do
         @song.creator = nil
         @song.valid?
