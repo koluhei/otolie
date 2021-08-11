@@ -11,13 +11,15 @@ ja:
       user:
         name: ユーザー名
         password: パスワード
+        password_confirmation: 確認用パスワード
         email: Eメール
         profile: プロフィール
         current_password: 現在のパスワード
 
       creator:
         name: クリエイター名
-        encrypted_password: パスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
         email: Eメール
         profile: プロフィール
         current_password: 現在のパスワード
