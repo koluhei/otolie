@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Plan, type: :model do
 
   before do
-    @plan = FactoryBot.build(:plan)
+    @creator = FactoryBot.create(:creator)
+    @plan = FactoryBot.build(:plan, creator_id: @creator.id)
   end
 
   describe '作曲プラン登録' do

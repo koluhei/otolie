@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe Song, type: :model do
 
   before do
-    @song = FactoryBot.build(:song)
+    @creator = FactoryBot.create(:creator)
+    @song = FactoryBot.build(:song, creator_id: @creator.id)
   end
+  
   describe '音楽のアップロード' do
     context 'アップロードできるとき' do
       it '全てのカラムに値が入っていればアップロードできる' do

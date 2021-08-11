@@ -6,6 +6,5 @@ FactoryBot.define do
     price       {Faker::Number.between(from: 50, to: 999999)}
     image       {File.open("#{Rails.root}/public/images/test.jpeg")}
     audio       {File.open("#{Rails.root}/public/audios/Morning.mp3")}
-    association :creator
   end
 end
