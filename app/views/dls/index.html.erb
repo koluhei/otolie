@@ -17,7 +17,7 @@
   <h1 class="dl-confirm-logo">カード情報入力</h1>
   <div class="dl-forms">
     <%= form_with model: [@song, @dl], url: song_dls_path, id: 'dl-form', local: true do |f| %>
-    <%#= render 'shared/errors', { target: @dl } %>
+    <%= render 'shared/errors', { target: @dl } %>
       <div class="song-field">
         <%= f.label :number, "クレジットカード番号" %><br />
         <%= f.text_field :number, autofocus: true, id: "card-number", placeholder: "カード番号(半角数字)", maxlength: "16" %>

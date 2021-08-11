@@ -21,3 +21,12 @@ ja:
         email: Eメール
         profile: プロフィール
         current_password: 現在のパスワード
+
+      dl:
+        token: カード情報
+
+      order_request:
+        purpose: 使用用途
+        demand: 要望
+        token: カード情報
+      
