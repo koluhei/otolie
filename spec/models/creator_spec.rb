@@ -42,6 +42,12 @@ RSpec.describe Creator, type: :model do
         @creator.valid?
         expect(@creator.errors.full_messages).to include('Eメールは不正な値です')
       end
+      it 'Eメールが重複していると登録できない' do
+        @creator.save
+        another_creator = FactoryBot.build(:creator, email: @creator.email)
+        another_creator.valid?
+        expect(another_creator.errors.full_messages).to include('Eメールはすでに存在します')
+      end
       it 'パスワードがなければ登録できない' do
         @creator.password = ''
         @creator.password_confirmation = @creator.password
