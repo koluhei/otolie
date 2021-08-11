@@ -1,16 +1,13 @@
 class OrdersController < ApplicationController
 
   before_action :only_user_can_order
+  before_action :set_creator_and_plan
 
   def index
-    @creator = Creator.find(params[:creator_id])
-    @plan = Plan.find(params[:plan_id])
     @order_request = OrderRequest.new
   end
 
   def create
-    @creator = Creator.find(params[:creator_id])
-    @plan = Plan.find(params[:plan_id])
     @order_request = OrderRequest.new(order_params)
     if @order_request.valid?
       pay_plan
@@ -25,6 +22,21 @@ class OrdersController < ApplicationController
 
 
   private
+
+  def set_creator_and_plan
+    @creator = Creator.find(params[:creator_id])
+    @plan = Plan.find(params[:plan_id])
+  end
+
+  def only_user_can_order
+    if creator_signed_in?
+      redirect_to root_path
+    elsif user_signed_in?
+    else
+      authenticate_user!
+    end
+  end
+
   def pay_plan
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
     Payjp::Charge.create(
@@ -37,16 +49,7 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order_request).permit(:purpose, :demand).merge(token: params[:token], user_id: current_user.id, plan_id: params[:plan_id])
   end
-
-  def only_user_can_order
-    if creator_signed_in?
-      redirect_to root_path
-    elsif user_signed_in?
-    else
-      authenticate_user!
-    end
-  end
-    
+  
   def send_order_message_to_creator
     if Chat.where(user_id: current_user.id, creator_id: params[:creator_id]).present?
       @chat = Chat.find_by(user_id: current_user.id, creator_id: params[:creator_id])

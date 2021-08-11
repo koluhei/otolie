@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :others_move_to_index
+
   def index
     @chat = Chat.find(params[:chat_id])
     @messages = @chat.messages
@@ -11,6 +13,15 @@ class MessagesController < ApplicationController
   end
 
   private
+  def others_move_to_index
+    @chat = Chat.find(params[:chat_id])
+    if user_signed_in? && current_user.id != @chat.user_id
+      redirect_to root_path
+    elsif creator_signed_in? && current_creator.id != @chat.creator_id
+      redirect_to root_path
+    end
+  end
+  
   def message_params
     if user_signed_in?
       params.require(:message).permit(:text).merge(chat_id: params[:chat_id], user_id: current_user.id)
