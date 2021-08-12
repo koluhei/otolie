@@ -35,8 +35,12 @@ ja:
       dl:
         token: カード情報
 
+  activemodel:
+    attributes:
       order_request:
         purpose: 使用用途
         demand: 要望
         token: カード情報
+        plan_id: プラン
+        user_id: ユーザー
       
