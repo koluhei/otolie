@@ -21,6 +21,7 @@
         <%= link_to "削除", creator_plan_path(current_creator.id, plan.id), method: :delete, class: "plan-delete" %>
       <% end %>
       <p class="plan-price">¥<%= plan.price %></p>
+      <p class="plan-delivery">納期：<%= plan.delivery %></p>
     </div>
   <% end %>
   <% if creator_signed_in? && current_creator.id == @creator.id %>

@@ -9,6 +9,7 @@
       <%= @plan.description %>
       </p>
       <p class="plan-price">¥<%= @plan.price %></p>
+      <p class="plan-delivery">納期：<%= @plan.delivery %></p>
     </div>
     <%= form_with model: @order_request, url: creator_plan_orders_path(params[:creator_id], params[:plan_id]), id: 'dl-form', local: true do |f| %>
       <%= render 'shared/errors', { target: @order_request } %>

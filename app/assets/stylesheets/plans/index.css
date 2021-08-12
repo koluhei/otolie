@@ -53,6 +53,13 @@
   letter-spacing: 2px;
 }
 
+.plan-delivery{
+  font-size: 20px;
+  position: absolute;
+  bottom: 40px;
+  left: 50px;
+}
+
 .plan-edit{
   position: absolute;
   bottom: 0;
