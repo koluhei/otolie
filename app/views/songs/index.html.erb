@@ -59,7 +59,7 @@
 
 
 
-<!--<ul class="navs">
+<ul class="navs">
   <li class="nav">Top</li>
   <% if user_signed_in? %>
     <li class="nav"><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
@@ -71,7 +71,6 @@
     <li class="nav" id="login-btn">Log in</li>
   <% end %>
   <li class="nav">Policy</li>
-  
 </ul>
 <ul class="signup-pulldown hidden" id="signup-pulldown">
     <li><%= link_to "User", new_user_registration_path, class: "user" %></li>

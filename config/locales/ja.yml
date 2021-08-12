@@ -7,26 +7,50 @@ ja:
         audio: オーディオファイル
         genre_id: ジャンル
         price: 価格
+        creator: クリエイター
 
       user:
         name: ユーザー名
         password: パスワード
+        password_confirmation: 確認用パスワード
         email: Eメール
         profile: プロフィール
         current_password: 現在のパスワード
 
       creator:
         name: クリエイター名
-        encrypted_password: パスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
         email: Eメール
         profile: プロフィール
         current_password: 現在のパスワード
 
+      plan:
+        course: プラン名
+        description: プラン内容
+        price: 価格
+        delivery: 納期
+        creator: クリエイター
+
       dl:
         token: カード情報
 
+      chat:
+        creator: クリエイター
+        user: ユーザー
+
+      message:
+        text: テキスト
+        chat: チャットルーム
+        creator: クリエイター
+        user: ユーザー
+
+  activemodel:
+    attributes:
       order_request:
         purpose: 使用用途
         demand: 要望
         token: カード情報
+        plan_id: プラン
+        user_id: ユーザー
       

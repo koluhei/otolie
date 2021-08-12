@@ -2,11 +2,7 @@ class Dl < ApplicationRecord
   
   attr_accessor :token
 
-  with_options presence: true do
-    validates :user_id
-    validates :song_id
-    validates :token
-  end
+  validates :token, presence: true
   
   belongs_to :user
   belongs_to :song
