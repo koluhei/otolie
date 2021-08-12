@@ -8,7 +8,7 @@ class Song < ApplicationRecord
     validates :description
     validates :price, numericality: { greater_than_or_equal_to: 50, less_than_or_equal_to: 999999 }
   end
-    validates :audio, presence: {message: "を選択してください"}
+  validates :audio, presence: {message: "を選択してください"}
 
   belongs_to :creator
   has_many :dls, dependent: :destroy

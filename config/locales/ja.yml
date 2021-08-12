@@ -35,6 +35,16 @@ ja:
       dl:
         token: カード情報
 
+      chat:
+        creator: クリエイター
+        user: ユーザー
+
+      message:
+        text: テキスト
+        chat: チャットルーム
+        creator: クリエイター
+        user: ユーザー
+
   activemodel:
     attributes:
       order_request:
