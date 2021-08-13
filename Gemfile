@@ -66,3 +66,4 @@ gem 'payjp'
 gem 'ransack'
 gem "aws-sdk-s3", require: false
 gem 'fog-aws'
+gem 'unicorn', '5.4.1'

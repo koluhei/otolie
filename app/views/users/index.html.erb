@@ -3,10 +3,10 @@
 <div class="chat-index-body">
   <div class="chat-head">Users</div>
     <%= search_form_for @q, url: search_users_path do |f| %>
-    <div class="search">
-      <%= f.search_field :name_or_profile_cont, placeholder: "ユーザー名・プロフィールを検索できます", class: "search-form" %>
-      <%= image_submit_tag("search_icon.png", class: "search-btn", size: "30x30") %>
-    </div>
+      <div class="search">
+        <%= f.search_field :name_or_profile_cont, placeholder: "ユーザー名・プロフィールを検索できます", class: "search-form" %>
+        <%= image_submit_tag("search_icon.png", class: "search-btn", size: "30x30") %>
+      </div>
     <% end %>
     <% @users.each do |user| %>
       <%= link_to user_path(user.id) do %>
