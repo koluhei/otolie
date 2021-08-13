@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: otolie_production
-  username: otolie
-  password: <%= ENV['OTOLIE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
