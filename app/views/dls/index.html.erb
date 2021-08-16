@@ -23,7 +23,7 @@
         <%= f.text_field :number, autofocus: true, id: "card-number", placeholder: "カード番号(半角数字)", maxlength: "16" %>
       </div>
       <div class='available-cards'>
-          <%= image_tag asset_path('card-visa.gif'), size: "40x35", class: 'card-logo'%>
+          <%= image_tag '/images/card-visa.gif', size: "40x35", class: 'card-logo'%>
           <%= image_tag 'card-mastercard.gif', size: "40x35", class: 'card-logo'%>
           <%= image_tag 'card-jcb.gif', size: "40x35", class: 'card-logo'%>
           <%= image_tag 'card-amex.gif', size: "40x35", class: 'card-logo'%>
