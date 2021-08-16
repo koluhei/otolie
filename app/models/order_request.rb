@@ -7,7 +7,6 @@ class OrderRequest
     validates :demand
     validates :user_id
     validates :plan_id
-    validates :token
   end
 
   def save
