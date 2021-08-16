@@ -1,7 +1,7 @@
 <div class="chat-header-fix">
   <div class="chat-header">
     <% if user_signed_in? %>
-      <%= link_to image_tag("back_arrow", size: "40x40"), creator_path(@chat.creator.id), class: "back-arrow" %>
+      <%= link_to image_tag("/images/back_arrow.png", size: "40x40"), creator_path(@chat.creator.id), class: "back-arrow" %>
       <p class="chat-name"><%= @chat.creator.name %></p>
       <p class="chat-user-creator">Creator</p>
     <% elsif creator_signed_in? %>
@@ -72,7 +72,7 @@
       <%= f.text_area :text, placeholder: "メッセージを入力してください" %>
     </div>
     <div class="chat-submit">
-      <%= image_submit_tag("send.png", class: "chat-submit-btn", id:"chat-send-btn") %>
+      <%= image_submit_tag("/images/send.png", class: "chat-submit-btn", id:"chat-send-btn") %>
     </div>
   <% end %> 
 </div>

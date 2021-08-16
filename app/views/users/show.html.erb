@@ -12,7 +12,7 @@
       <% if creator_signed_in? %>
         <div class='dm-btn'>
           <%= button_to chats_path(user_id: @user.id) do %>
-            <%= image_tag "mail_icon.png" , size: '35x35' %>
+            <%= image_tag "/images/mail_icon.png" , size: '35x35' %>
           <% end %>
         </div>
       <% end %>
