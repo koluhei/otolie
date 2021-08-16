@@ -1,15 +1,14 @@
 class DlsController < ApplicationController
   before_action :cannot_pay_again, only: [:index,:create]
   before_action :cannnot_download_except_buyer, only: [:download_page, :download]
+  before_action :set_song
 
   def index
     @dl = Dl.new
-    set_song
   end
 
   def create
     @dl = Dl.new(user_id: current_user.id, song_id: params[:song_id], token: params[:token])
-    set_song
     if @dl.valid?
       pay_song
       @dl.save
@@ -20,12 +19,11 @@ class DlsController < ApplicationController
   end
 
   def download_page
-    set_song
   end
 
   def download
-    set_song
-    send_file @song.audio.path
+    song_audio = open("#{@song.audio}")
+    send_data song_audio.read, filename: "#{@song.title}.mp3", type: "audio/mp3"
   end
 
 
