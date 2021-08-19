@@ -121,7 +121,7 @@ http://18.177.32.82/
 -belongs_to :creator  
 -has many :users, through :dls
 
-### dls テーブル
+## dls テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -132,7 +132,7 @@ http://18.177.32.82/
 -belongs_to :user  
 -belongs_to :song
 
-### plans テーブル
+## plans テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
@@ -145,7 +145,7 @@ http://18.177.32.82/
 ### Association
 -belongs_to :creator
 
-### orders テーブル
+## orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -159,7 +159,7 @@ http://18.177.32.82/
 -has_one :request
 
 
-### requests テーブル
+## requests テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -170,7 +170,7 @@ http://18.177.32.82/
 ### Association
 -belongs_to :order
 
-### chats テーブル
+## chats テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -182,7 +182,7 @@ http://18.177.32.82/
 -belongs_to :creator  
 -has_many :messages, dependent: :destroy
 
-### messages テーブル
+## messages テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
