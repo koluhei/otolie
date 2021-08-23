@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
 
   def create
     @order_request = OrderRequest.new(order_params)
+    sleep 2
     if @order_request.valid?
       pay_plan
       @order_request.save
