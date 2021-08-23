@@ -33,6 +33,9 @@
   </div>
 
   <h1 class="music-logo">Music</h1> 
+  <% unless @songs.present? %>
+    <p class="song-none">ー 投稿された楽曲はありません ー</p>
+  <% end %>
   <%= render partial: 'shared/song', collection: @songs %>
   <%= render partial: "shared/footer" %>
 </div>

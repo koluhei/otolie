@@ -9,7 +9,6 @@ class DlsController < ApplicationController
 
   def create
     @dl = Dl.new(user_id: current_user.id, song_id: params[:song_id], token: params[:token])
-    sleep 2
     if @dl.valid?
       pay_song
       @dl.save

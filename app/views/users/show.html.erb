@@ -26,6 +26,9 @@
     <% end %>
   </div>
   <h1 class="music-logo">Downloaded Music</h1>
+  <% unless @songs.present? %>
+    <p class="song-none">ー 購入した楽曲はありません ー</p>
+  <% end %>
   <%= render partial: 'shared/song', collection: @songs %>
   <%= render partial: "shared/footer" %>
 </div>
