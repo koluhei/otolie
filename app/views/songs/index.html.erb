@@ -96,6 +96,9 @@
 <h1 class="music-logo">Music</h1> 
 <div class="music-content">
   <div class="music-lists">
+    <% unless @songs.present? %>
+      <p class="song-none">ー 投稿された楽曲はありません ー</p>
+    <% end %>
     <% @songs.each do |song| %>
       <div class="music">
         <% unless song.image.present? %>

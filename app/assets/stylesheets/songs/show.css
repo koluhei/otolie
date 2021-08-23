@@ -11,7 +11,7 @@
   margin-right: 50px;
   border: 1px solid whitesmoke;
   background-color: white;
-
+  object-fit:cover;
 }
 
 .show-head{

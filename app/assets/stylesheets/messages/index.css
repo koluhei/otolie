@@ -54,6 +54,7 @@
 
 .left-message-img{
   border-radius: 50%;
+  object-fit:cover;
 }
 
 .left-message-text{
@@ -84,6 +85,7 @@
 
 .right-message-img{
   border-radius: 50%;
+  object-fit:cover;
 }
 
 .right-message-text{

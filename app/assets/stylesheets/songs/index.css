@@ -156,6 +156,12 @@
   width: 30%;
 }
 
+.song-none{
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
 .upper-content{
   width: 88%;
   margin: auto;
@@ -178,6 +184,8 @@ a{
   width:  150px;
   height: 150px;
   margin-right: 30px;
+  object-fit:cover;
+  border : 1px solid rgb(212, 212, 212);
 }
 
 .music-lists{
